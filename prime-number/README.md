@@ -1,4 +1,3 @@
-
 # Prime Number
 
 - prime numbers are positive integers greater than `1` with exactly two factors, `1` and `the number itself`.
