@@ -1,0 +1,27 @@
+{
+  "name": "Test extention",
+  "version": "1.0.0",
+  "desxription": "This is an testing extention",
+  "manifest_version": 3,
+  "auther": "KrishnaKodoth",
+  "icons": {
+    "16": "",
+    "48": "",
+    "128": ""
+  },
+  "page_actions": {
+    "16": "",
+    "48": "",
+    "128": ""
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "KP-EXT"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.com/*"],
+      "css": ["main.css"]
+    }
+  ]
+}

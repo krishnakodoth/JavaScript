@@ -1,0 +1,20 @@
+{
+  "name": "MarkAll",
+  "version": "1.0.0",
+  "description": "This is an testing extention",
+  "manifest_version": 3,
+  "author": "KrishnaKodoth",
+  "icons": {
+    "16": "images/logo-16.png",
+    "32": "images/logo-32.png",
+    "48": "images/logo-48.png",
+    "128": "images/logo-128.png"
+  },
+  "permissions": ["activeTab"],
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

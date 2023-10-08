@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drawing Canvas</title>
+    <style>
+      main {
+        background-color: beige;
+        width: 300px;
+        height: 500px;
+        overflow: auto;
+      }
+      main::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      main::-webkit-scrollbar-thumb {
+        background: #c1c1c1 0% 0% no-repeat padding-box;
+      }
+
+      .canvas_wrapper {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas_wrapper">
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <main>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos recusandae
+        consequatur labore deleniti tempore facere possimus adipisci harum
+        mollitia fugiat earum eos ex fuga atque corrupti, dolorem voluptas autem
+        aspernatur.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem sint
+        provident quo quisquam cum maxime illo, delectus ipsum a qui nam
+        molestias necessitatibus ad tenetur enim consequuntur natus porro
+        voluptatibus?
+      </p>
+      <p>
+        Eos vitae doloremque commodi consectetur quibusdam modi esse aliquid
+        enim, accusamus deleniti cumque reprehenderit, nemo obcaecati.
+        Voluptates, quibusdam maiores distinctio, esse quidem sequi suscipit,
+        perspiciatis iste cumque dolore vel eaque.
+      </p>
+      <p>
+        Similique quos eligendi provident? Reiciendis voluptatibus blanditiis
+        minima doloribus cumque, soluta obcaecati nesciunt dicta placeat.
+        Molestias dolorem earum delectus quae dolore, neque rerum quidem ex
+        error corrupti, dolores, odit alias!
+      </p>
+      <p>
+        Doloremque qui quae, quaerat inventore eaque aspernatur ipsam at. Itaque
+        sit saepe omnis dolore officia nobis quos rem ea doloremque? Nulla
+        distinctio perspiciatis culpa dolores quaerat? Non sapiente et at.
+      </p>
+      <p>
+        Vitae facilis veritatis numquam et temporibus voluptatibus, distinctio
+        suscipit voluptatum odit rem totam dolore vero placeat autem. Sunt
+        dolorem eligendi, iste quasi ipsam ratione, id aliquid commodi nesciunt,
+        quibusdam odio?
+      </p>
+      <p>
+        Harum laborum officia voluptas, libero nam inventore provident
+        cupiditate voluptatem ea incidunt iure dolor optio doloribus ipsam
+        perferendis officiis praesentium reiciendis aut ratione cum ullam. Dolor
+        optio neque reiciendis repellat!
+      </p>
+      <p>
+        Sed voluptatum voluptatem, ducimus ipsum sit quas praesentium
+        recusandae, ad similique quae vel dolores numquam fuga magnam distinctio
+        qui accusantium, id laboriosam nobis laborum corporis aliquam?
+        Necessitatibus libero rem voluptatem!
+      </p>
+      <p>
+        Libero, ratione tempore. Veniam vero, tenetur, molestiae quasi, et
+        explicabo inventore sed esse dolores cupiditate non autem. Aliquam
+        cumque autem, aperiam optio suscipit ut dolorem quod ea, nihil excepturi
+        magnam!
+      </p>
+      <p>
+        Laudantium accusamus quia tempora nostrum, ipsa harum. Aliquid odit
+        fugiat rem, fugit eligendi sequi natus corrupti! Qui sapiente ipsa
+        cumque dolorum, nostrum commodi, rerum corrupti ducimus architecto
+        doloribus libero! Ea!
+      </p>
+      <p>
+        Ipsa dolorum rem tempore, itaque quibusdam voluptatibus architecto
+        doloribus reiciendis nihil ad ipsum est dolores, nobis error eveniet
+        numquam deleniti cupiditate veniam, inventore impedit mollitia quam.
+        Accusamus, voluptas? Et, distinctio?
+      </p>
+    </main>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+
+      ctx.canvas.width = innerWidth;
+      ctx.canvas.height = innerHeight;
+
+      let drawing = false;
+
+      canvas.addEventListener("mousedown", () => {
+        drawing = true;
+      });
+
+      canvas.addEventListener("mouseup", () => {
+        drawing = false;
+        ctx.beginPath();
+      });
+
+      canvas.addEventListener("mousemove", draw);
+
+      function draw(event) {
+        if (!drawing) return;
+
+        ctx.lineWidth = 5;
+        ctx.lineCap = "round";
+        ctx.strokeStyle = "black";
+
+        ctx.lineTo(
+          event.clientX - canvas.offsetLeft,
+          event.clientY - canvas.offsetTop
+        );
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(
+          event.clientX - canvas.offsetLeft,
+          event.clientY - canvas.offsetTop
+        );
+      }
+    </script>
+  </body>
+</html>
